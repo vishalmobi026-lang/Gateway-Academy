@@ -10,7 +10,7 @@ function Enquiries() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const fetchEnquiries = () => {
-    fetch("http://127.0.0.1:8000/enquiries/")
+    fetch("https://gateway-academy.onrender.com/enquiries/")
       .then((res) => res.json())
       .then((data) => {
         // Filter only contact page enquiries
@@ -51,7 +51,7 @@ function Enquiries() {
   const archiveEnquiry = async (id) => {
     if (!window.confirm("Move this enquiry to Archived Inquiries?")) return;
     try {
-      await fetch(`http://127.0.0.1:8000/enquiries/${id}/archive`, { method: "PATCH" });
+      await fetch(`https://gateway-academy.onrender.com/enquiries/${id}/archive`, { method: "PATCH" });
       setEnquiries((prev) => prev.filter((item) => item.id !== id));
     } catch (err) { console.error(err); }
   };

@@ -19,7 +19,7 @@ export default function CoursesSection() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/courses/")
+    fetch("https://gateway-academy.onrender.com/courses/")
       .then(res => res.json())
       .then(data => {
         const formatted = data.map(c => ({

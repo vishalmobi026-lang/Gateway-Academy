@@ -10,7 +10,7 @@ function ContactAD() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const fetchContacts = () => {
-    fetch("http://127.0.0.1:8000/enquiries/")
+    fetch("https://gateway-academy.onrender.com/enquiries/")
       .then((res) => res.json())
       .then((data) => {
         // Filter only widget enquiries
@@ -50,7 +50,7 @@ function ContactAD() {
   const deleteContact = async (id) => {
     if (!window.confirm("Are you sure you want to permanently delete this contact?")) return;
     try {
-      await fetch(`http://127.0.0.1:8000/enquiries/${id}`, { method: "DELETE" });
+      await fetch(`https://gateway-academy.onrender.com/enquiries/${id}`, { method: "DELETE" });
       setContacts((prev) => prev.filter((item) => item.id !== id));
     } catch (err) { console.error(err); }
   };

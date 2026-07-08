@@ -174,7 +174,7 @@ export default function NeonStrikeGame({ onClose }) {
             // Fire-and-forget: Save questions to the backend database
             try {
                 const questionsToSave = finalQuestions.map(q => ({...q, topic: formData.course}));
-                fetch("http://127.0.0.1:8000/questions/", {
+                fetch("https://gateway-academy.onrender.com/questions/", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(questionsToSave)
@@ -186,7 +186,7 @@ export default function NeonStrikeGame({ onClose }) {
             console.warn("Gemini API is unavailable or failed to parse. Falling back to DB.");
             
             try {
-                const fallbackRes = await fetch(`http://127.0.0.1:8000/questions/fallback?course=${encodeURIComponent(formData.course)}`);
+                const fallbackRes = await fetch(`https://gateway-academy.onrender.com/questions/fallback?course=${encodeURIComponent(formData.course)}`);
                 if (!fallbackRes.ok) throw new Error("Backend fallback failed");
                 
                 const fallbackQuestions = await fallbackRes.json();
@@ -371,7 +371,7 @@ export default function NeonStrikeGame({ onClose }) {
 
                 const fullPhoneNumber = `${formData.countryCode}${formData.phone}`;
                 try {
-                    await fetch("http://127.0.0.1:8000/scores/", {
+                    await fetch("https://gateway-academy.onrender.com/scores/", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

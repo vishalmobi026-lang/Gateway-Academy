@@ -10,7 +10,7 @@ function StudentEnroll() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const fetchEnrollments = () => {
-    fetch("http://127.0.0.1:8000/enrollments/")
+    fetch("https://gateway-academy.onrender.com/enrollments/")
       .then((res) => res.json())
       .then((data) => {
         setEnrollments(data);
@@ -51,7 +51,7 @@ function StudentEnroll() {
   const deleteEnrollment = async (id) => {
     if (!window.confirm("Are you sure you want to permanently delete this enrollment?")) return;
     try {
-      await fetch(`http://127.0.0.1:8000/enrollments/${id}`, { method: "DELETE" });
+      await fetch(`https://gateway-academy.onrender.com/enrollments/${id}`, { method: "DELETE" });
       setEnrollments((prev) => prev.filter((item) => item.id !== id));
     } catch (err) { console.error(err); }
   };

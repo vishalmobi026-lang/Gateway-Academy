@@ -89,7 +89,7 @@ export default function Enroll() {
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/courses/")
+    fetch("https://gateway-academy.onrender.com/courses/")
       .then(res => res.json())
       .then(data => {
         setCourses(data);
@@ -134,7 +134,7 @@ export default function Enroll() {
    setSubmitting(true);
 
 try {
-    const response = await fetch("http://127.0.0.1:8000/enrollments/", {
+    const response = await fetch("https://gateway-academy.onrender.com/enrollments/", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${localStorage.getItem("token")}`,

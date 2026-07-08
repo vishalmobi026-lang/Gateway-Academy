@@ -11,7 +11,7 @@ function GameScores() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const fetchScores = () => {
-    fetch("http://127.0.0.1:8000/scores/")
+    fetch("https://gateway-academy.onrender.com/scores/")
       .then((res) => res.json())
       .then((data) => {
         setScores(data);
@@ -62,7 +62,7 @@ function GameScores() {
   const deleteScore = async (id) => {
     if (!window.confirm("Are you sure you want to permanently delete this score?")) return;
     try {
-      await fetch(`http://127.0.0.1:8000/scores/${id}`, { method: "DELETE" });
+      await fetch(`https://gateway-academy.onrender.com/scores/${id}`, { method: "DELETE" });
       setScores((prev) => prev.filter((item) => item.id !== id));
     } catch (err) { console.error(err); }
   };

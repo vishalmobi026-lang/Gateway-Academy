@@ -45,7 +45,7 @@ export default function CourseManagement() {
     try {
       setLoading(true);
       setError("");
-      const response = await fetch("http://127.0.0.1:8000/courses/");
+      const response = await fetch("https://gateway-academy.onrender.com/courses/");
       if (!response.ok) {
         throw new Error(`HTTP Error: ${response.status}`);
       }
@@ -119,8 +119,8 @@ export default function CourseManagement() {
 
     try {
       const url = editingCourse
-        ? `http://127.0.0.1:8000/courses/${editingCourse.id}`
-        : "http://127.0.0.1:8000/courses/";
+        ? `https://gateway-academy.onrender.com/courses/${editingCourse.id}`
+        : "https://gateway-academy.onrender.com/courses/";
 
       const method = editingCourse ? "PUT" : "POST";
 
@@ -145,7 +145,7 @@ export default function CourseManagement() {
     if (!window.confirm("Are you sure you want to delete this course?")) return;
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/courses/${id}`, {
+      const response = await fetch(`https://gateway-academy.onrender.com/courses/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) throw new Error("Failed to delete course");

@@ -23,7 +23,7 @@ function VerifyCoupon() {
     setErrorMsg("");
 
     try {
-      const res = await fetch(`http://127.0.0.1:8000/scores/verify/${encodeURIComponent(code.trim())}`);
+      const res = await fetch(`https://gateway-academy.onrender.com/scores/verify/${encodeURIComponent(code.trim())}`);
       if (!res.ok) {
         const err = await res.json();
         throw new Error(err.detail || "Invalid Signature");

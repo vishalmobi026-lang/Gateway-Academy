@@ -10,7 +10,7 @@ function ArchivedInquiries() {
   const navigate = useNavigate();
 
   const fetchArchived = () => {
-    fetch("http://127.0.0.1:8000/enquiries/archived")
+    fetch("https://gateway-academy.onrender.com/enquiries/archived")
       .then((res) => res.json())
       .then((data) => {
         setArchived(data);
@@ -31,7 +31,7 @@ function ArchivedInquiries() {
   const restoreEnquiry = async (id) => {
     if (!window.confirm("Restore this enquiry back to Inbox?")) return;
     try {
-      await fetch(`http://127.0.0.1:8000/enquiries/${id}/restore`, { method: "PATCH" });
+      await fetch(`https://gateway-academy.onrender.com/enquiries/${id}/restore`, { method: "PATCH" });
       setArchived((prev) => prev.filter((item) => item.id !== id));
     } catch (err) { console.error(err); }
   };
@@ -39,7 +39,7 @@ function ArchivedInquiries() {
   const permanentlyDelete = async (id) => {
     if (!window.confirm("Permanently delete this enquiry? This cannot be undone.")) return;
     try {
-      await fetch(`http://127.0.0.1:8000/enquiries/${id}`, { method: "DELETE" });
+      await fetch(`https://gateway-academy.onrender.com/enquiries/${id}`, { method: "DELETE" });
       setArchived((prev) => prev.filter((item) => item.id !== id));
     } catch (err) { console.error(err); }
   };

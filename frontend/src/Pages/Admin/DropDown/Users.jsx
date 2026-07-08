@@ -10,7 +10,7 @@ function User() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const fetchUsers = () => {
-    fetch("http://127.0.0.1:8000/auth/users")
+    fetch("https://gateway-academy.onrender.com/auth/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -46,7 +46,7 @@ function User() {
   const deleteUser = async (id) => {
     if (!window.confirm("Are you sure you want to permanently delete this user? They will lose all access.")) return;
     try {
-      await fetch(`http://127.0.0.1:8000/auth/users/${id}`, { method: "DELETE" });
+      await fetch(`https://gateway-academy.onrender.com/auth/users/${id}`, { method: "DELETE" });
       setUsers((prev) => prev.filter((item) => item.id !== id));
     } catch (err) { console.error(err); }
   };
